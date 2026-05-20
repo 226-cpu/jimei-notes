@@ -103,13 +103,37 @@ git push
 # 2. 等 1～3 分钟，手机打开 Pages 网址刷新
 ```
 
-### 8. 常见问题
+### 8. Actions 显示红叉（部署失败）怎么查
+
+1. 打开仓库 **Actions** → 点失败的那条 **init: 集美笔记**（或最新一条）
+2. 点左侧红色的 **build** 或 **deploy** → 展开**第一个变红的步骤**，看最后几行英文报错
+
+常见原因与处理：
+
+| 报错大致内容 | 处理 |
+|--------------|------|
+| `npm ci` / `package-lock` | 确保已提交 `package-lock.json`：`git add package-lock.json` 再 push |
+| `npm run check` 失败 | 本地先 `npm run check`，按提示改 `.md` 里的 `:::` |
+| `npm run build` / `dead link` | 本地 `npm run build`，不要链到 `templates/`、`.ts` |
+| `Permission denied` / `403` | 仓库 **Settings → Actions → General → Workflow permissions** 选 **Read and write** |
+| `build` 成功、`deploy` 失败 | **Settings → Pages** 确认 Source 为 **GitHub Actions**；首次 deploy 有时需在 Actions 里点 **Review deployments** 批准 |
+
+改完后本地：
+
+```bash
+git add .
+git commit -m "fix: 修复 Actions 部署"
+git push
+```
+
+等 1～2 分钟，Actions 变绿 ✓ 后，**Settings → Pages** 会出现网站地址。
+
+### 9. 其他常见问题
 
 | 现象 | 处理 |
 |------|------|
 | 网页空白、样式丢失 | 多半是 `base` 不对；项目站必须是 `/仓库名/` |
-| Actions 失败 | 仓库 **Actions** 页点进失败记录看红字；先本地 `npm run build` 通过 |
-| 私有仓库 | GitHub 免费账号支持私有库 + Pages，但需登录 GitHub 才能访问 |
+| 私有仓库 | 免费账户支持私有库 + Pages，访问网站常需登录 GitHub |
 | 想用自己的域名 | Pages 设置里填 Custom domain，并把 `base` 改为 `/` |
 
 ---

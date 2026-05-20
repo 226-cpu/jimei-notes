@@ -39,9 +39,14 @@ jobs:
             echo "VP_BASE=/${REPO}/" >> "$GITHUB_ENV"
           fi
 
-      - run: npm ci
-      - run: npm run check
-      - run: npm run build
+      - name: 安装依赖
+        run: npm install
+
+      - name: 检查 ::: 提示框
+        run: npm run check
+
+      - name: 构建 VitePress
+        run: npm run build
 
       - uses: actions/configure-pages@v4
 
