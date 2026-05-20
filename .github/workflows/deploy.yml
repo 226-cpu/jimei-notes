@@ -42,7 +42,7 @@ jobs:
       - name: 安装依赖
         run: npm install
 
-      - name: 检查 ::: 提示框
+      - name: 检查提示框语法
         run: npm run check
 
       - name: 构建 VitePress
