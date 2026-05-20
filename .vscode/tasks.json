@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "生成 Markdown 表格（剪贴板）",
+      "type": "shell",
+      "command": "node",
+      "args": [
+        "${workspaceFolder}/scripts/gen-table.mjs",
+        "${input:tableCols}",
+        "${input:tableRows}"
+      ],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "close": true
+      },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "tableCols",
+      "type": "promptString",
+      "description": "表格列数（填几生成几列）",
+      "default": "3"
+    },
+    {
+      "id": "tableRows",
+      "type": "promptString",
+      "description": "数据行数（不含表头行）",
+      "default": "2"
+    }
+  ]
+}

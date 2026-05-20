@@ -1,0 +1,48 @@
+{
+  "笔记-表格3列": {
+    "prefix": ["table3", "note-table3"],
+    "scope": "markdown",
+    "body": [
+      "| ${1:列1} | ${2:列2} | ${3:列3} |",
+      "| --- | --- | --- |",
+      "| ${4:} | ${5:} | ${6:} |",
+      "$0"
+    ],
+    "description": "【集美笔记】插入 3 列 Markdown 表格"
+  },
+  "笔记-表格2列": {
+    "prefix": ["table2", "note-table2"],
+    "scope": "markdown",
+    "body": [
+      "| 概念 | 区别说明 |",
+      "| --- | --- |",
+      "| ${1:} | ${2:} |",
+      "$0"
+    ],
+    "description": "【集美笔记】插入 2 列易混辨析表"
+  },
+  "笔记-必背": {
+    "prefix": ["bb", "note-bb"],
+    "scope": "markdown",
+    "body": "<span class=\"必背\">${1}</span>$0",
+    "description": "【集美笔记】必背红字"
+  },
+  "笔记-高亮": {
+    "prefix": ["gl", "note-gl"],
+    "scope": "markdown",
+    "body": "<span class=\"高亮\">${1}</span>$0",
+    "description": "【集美笔记】黄底高亮"
+  },
+  "笔记-术语": {
+    "prefix": ["sy", "note-sy"],
+    "scope": "markdown",
+    "body": "<span class=\"术语\">${1}</span>$0",
+    "description": "【集美笔记】术语蓝字"
+  },
+  "笔记-易混": {
+    "prefix": ["yh", "note-yh"],
+    "scope": "markdown",
+    "body": "<span class=\"易混\">${1}</span>$0",
+    "description": "【集美笔记】易混橙字"
+  }
+}

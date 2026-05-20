@@ -1,0 +1,17 @@
+{
+  "name": "jimei-notes",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx vitepress dev",
+    "dev:lan": "npx vitepress dev --host",
+    "build": "npx vitepress build",
+    "preview": "npx vitepress preview",
+    "preview:lan": "npx vitepress preview --host",
+    "table": "node scripts/gen-table.mjs",
+    "check": "node scripts/check-containers.mjs"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.3"
+  }
+}

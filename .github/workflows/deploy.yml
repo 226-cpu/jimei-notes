@@ -1,0 +1,60 @@
+# 推送到 main 后自动构建并发布到 GitHub Pages
+# 项目站：https://用户名.github.io/仓库名/
+# 用户站（仓库名为 用户名.github.io）：https://用户名.github.io/
+
+name: Deploy VitePress to Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: 设置 base 路径（GitHub Pages）
+        run: |
+          REPO="${{ github.event.repository.name }}"
+          OWNER="${{ github.repository_owner }}"
+          if [ "$REPO" = "${OWNER}.github.io" ]; then
+            echo "VP_BASE=/" >> "$GITHUB_ENV"
+          else
+            echo "VP_BASE=/${REPO}/" >> "$GITHUB_ENV"
+          fi
+
+      - run: npm ci
+      - run: npm run check
+      - run: npm run build
+
+      - uses: actions/configure-pages@v4
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .vitepress/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment

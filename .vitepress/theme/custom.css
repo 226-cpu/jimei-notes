@@ -1,0 +1,47 @@
+/**
+ * 笔记颜色样式 — 在 .md 中使用：
+ * <span class="必背">...</span>
+ * <span class="高亮">...</span>
+ * <span class="术语">...</span>
+ * <span class="易混">...</span>
+ */
+
+.必背 {
+  color: #b91c1c;
+  font-weight: 600;
+}
+
+.高亮 {
+  background: linear-gradient(transparent 60%, #fef08a 60%);
+  padding: 0 2px;
+}
+
+.术语 {
+  color: #1d4ed8;
+  font-weight: 500;
+}
+
+.易混 {
+  color: #b45309;
+  background: #fff7ed;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+/* 暗色模式下微调对比度 */
+.dark .必背 {
+  color: #fca5a5;
+}
+
+.dark .高亮 {
+  background: linear-gradient(transparent 55%, rgba(250, 204, 21, 0.35) 55%);
+}
+
+.dark .术语 {
+  color: #93c5fd;
+}
+
+.dark .易混 {
+  color: #fdba74;
+  background: rgba(234, 88, 12, 0.15);
+}
