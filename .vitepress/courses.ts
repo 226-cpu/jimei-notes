@@ -41,7 +41,12 @@ export const courses: Course[] = [
     folder: '大学英语',
     name: '大学英语',
     category: '英语',
-    chapters: [],
+    chapters: [
+      {
+        text: 'Unit 1 Practical Words & Phrases',
+        link: '/大学英语/Unit1-词汇',
+      },
+    ],
   },
 ]
 

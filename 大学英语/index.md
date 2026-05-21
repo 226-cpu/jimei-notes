@@ -1,9 +1,5 @@
 # 大学英语
 
-尚未添加章节笔记。
+## 章节
 
-## 如何开始
-
-1. 在本文件夹新建笔记，例如 `Unit1-词汇.md`
-2. 在 `.vitepress/courses.ts` 的「大学英语」`chapters` 中登记
-3. 可复制本地文件 `templates/英语-单元模板.md` 作为单元模板（该文件夹不参与网站构建）
+- [Unit 1 Practical Words & Phrases](./Unit1-词汇)
