@@ -261,7 +261,8 @@ npm run check
 
 4. **`cursor_.md`** 已排除在构建之外，勿放进课程目录当笔记。
 5. **`dead link(s) found`**：多为链到 `templates/` 或 `.ts` 文件；模板只在本地用，不要写成 `[文字](../templates/xxx.md)`。
-6. 修好后重新执行 `npm run build`。
+6. **部署后点击全 404**：检查 `.vitepress/config.mts` 是否存在且含 `base: process.env.VP_BASE || '/'`，再 push 让 Actions 重新构建；访问地址须含 **仓库名**。详见 [部署教程](/deploy)。
+7. 修好后重新执行 `npm run build`。
 
 
 ::: tip 理解要点

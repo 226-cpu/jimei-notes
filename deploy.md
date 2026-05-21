@@ -128,7 +128,27 @@ git push
 
 等 1～2 分钟，Actions 变绿 ✓ 后，**Settings → Pages** 会出现网站地址。
 
-### 9. 其他常见问题
+### 9. 打开首页正常，点链接全是 404
+
+**原因：** 项目站地址是 `https://用户名.github.io/仓库名/`，但构建时 `base` 仍是 `/`，链接会跳到 `https://用户名.github.io/guide`（少了仓库名）→ 404。
+
+**处理：**
+
+1. 确认存在 `.vitepress/config.mts`，且含 `base: process.env.VP_BASE || '/'`
+2. 重新 `git push`，等 Actions 变绿后再访问
+3. 浏览器地址栏必须是 **Settings → Pages 显示的完整网址**（含仓库名），例如：  
+   `https://226-cpu.github.io/你的仓库名/`  
+   不要只打开 `https://226-cpu.github.io/`
+4. 本地验证（把 `你的仓库名` 换成 GitHub 上真实仓库名）：
+
+```powershell
+$env:VP_BASE="/你的仓库名/"; npm run build
+npx vitepress preview
+```
+
+预览里链接若正常，部署后也会正常。
+
+### 10. 其他常见问题
 
 | 现象 | 处理 |
 |------|------|
