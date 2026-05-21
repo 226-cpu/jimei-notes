@@ -262,3 +262,29 @@ npm run check
 4. **`cursor_.md`** 已排除在构建之外，勿放进课程目录当笔记。
 5. **`dead link(s) found`**：多为链到 `templates/` 或 `.ts` 文件；模板只在本地用，不要写成 `[文字](../templates/xxx.md)`。
 6. 修好后重新执行 `npm run build`。
+
+
+::: tip 理解要点
+用自己的话概括即可。
+:::
+
+::: warning 易混
+「新时代」和「新时期」不要记混。
+:::
+
+::: danger 必背
+必须按教材表述记忆的内容。
+:::
+
+::: info 补充
+老师拓展、时政材料等。
+:::
+
+| 列1 | 列2 | 列3 |
+| --- | --- | --- |
+|  |  |  |
+
+
+<!-- <span style="background: #c0392b; color: #fff;"></span> -->
+
+<!-- <span style="background: #fef08a"></span> -->
